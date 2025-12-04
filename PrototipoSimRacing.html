@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REDLINE Hunters - Sim Tech R</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0e0e0e;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-style: italic;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    header {
+      background: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #ff2a00;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #ff2a00;
+    }
+    header h3 {
+      margin: 5px 0 0;
+      color: #ffa040;
+      font-weight: 400;
+      font-style: normal;
+      letter-spacing: 1px;
+    }
+    nav {
+      text-align: center;
+      padding: 10px 0;
+      background: #111;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ff2a00;
+    }
+    /* ---------------- HERO CON VIDEO ---------------- */
+    .hero {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 0 20px;
+    }
+    .background-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      filter: brightness(50%);
+      object-fit: cover;
+    }
+    .hero h2 {
+      position: relative;
+      z-index: 1;
+      font-size: 2.8rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px 40px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    /* ---------------- PRODUCTOS ---------------- */
+    .productos {
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .producto {
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255, 42, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .producto:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(255, 42, 0, 0.7);
+    }
+    .producto img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .producto h3 {
+      margin-top: 0;
+      color: #ff2a00;
+      font-size: 1.6rem;
+    }
+    .producto p {
+      margin: 12px 0 15px;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+    .producto strong {
+      font-size: 1.3rem;
+      color: #ff2a00;
+    }
+    /* ---------------- SECCIÓN BENEFICIOS ---------------- */
+    .beneficios {
+      background: #111;
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: 40px auto;
+      border-radius: 12px;
+    }
+    .beneficios h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .beneficios-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .beneficio {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      box-shadow: 0 0 10px rgba(255, 42, 0, 0.25);
+      transition: box-shadow 0.3s ease;
+    }
+    .beneficio:hover {
+      box-shadow: 0 0 18px rgba(255, 42, 0, 0.6);
+    }
+    .beneficio h3 {
+      margin-top: 0;
+      color: #ff2a00;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+    .beneficio p {
+      color: #ddd;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    /* ---------------- TESTIMONIOS ---------------- */
+    .testimonios {
+      background: #111;
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: 40px auto;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .testimonios h2 {
+      margin-bottom: 40px;
+    }
+    .testimonio {
+      background: #1a1a1a;
+      margin-bottom: 25px;
+      padding: 25px 20px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      box-shadow: 0 0 10px rgba(255, 42, 0, 0.3);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-style: italic;
+      color: #ccc;
+    }
+    .testimonio strong {
+      display: block;
+      margin-top: 15px;
+      font-weight: 700;
+      color: #ff2a00;
+      font-style: normal;
+      font-size: 1.1rem;
+    }
+    /* ---------------- BLOG ---------------- */
+    .blog {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .blog h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .articulo {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      border: 1px solid #333;
+      box-shadow: 0 0 12px rgba(255, 42, 0, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+    .articulo:hover {
+      box-shadow: 0 0 20px rgba(255, 42, 0, 0.6);
+    }
+    .articulo h3 {
+      color: #ff2a00;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    .articulo p {
+      color: #ddd;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    /* ---------------- FAQ ---------------- */
+    .faq {
+      max-width: 1100px;
+      margin: 40px auto 60px;
+      padding: 20px;
+      background: #111;
+      border-radius: 12px;
+    }
+    .faq h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .faq-item {
+      margin-bottom: 25px;
+    }
+    .faq-item h3 {
+      color: #ff2a00;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+    .faq-item p {
+      color: #ddd;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin: 0;
+      display: none;
+    }
+    .faq-item.open p {
+      display: block;
+    }
+    /* ---------------- FOOTER ---------------- */
+    .footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 2px solid #ff2a00;
+    }
+    /* ---------------- MEDIA ---------------- */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 1.8rem;
+        padding: 15px 20px;
+      }
+      .productos {
+        grid-template-columns: 1fr;
+      }
+      .beneficios-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Redline Hunters</h1>
+    <h2>Espíritu Deportivo</h2>
+  </header>
+
+  <nav>
+    <a href="#productos">Productos</a>
+    <a href="#beneficios">Beneficios</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#blog">Blog</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#nosotros">Nosotros</a>
+  </nav>
+
+  <!-- ---------------- SECCIÓN VIDEO ---------------- -->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="video.mp4" type="video/mp4" />
+    </video>
+
+    <h3>Experimenta la adrenalina</h3>
+  </section>
+
+  <!-- ---------------- PRODUCTOS ---------------- -->
+  <section id="productos" class="productos">
+    <div class="producto">
+      <img src="https://nextlevelracing.com/wp-content/uploads/2022/04/gt_elite_sidemount_gallery_6_11zon-1060x706.png" alt="Cockpit simulación" />
+      <h3>RLHs Tech RR</h3>
+      <p>Estructura rígida, ajustable y lista para volantes de gama alta.</p>
+      <strong>599€</strong>
+    </div>
+
+    <div class="producto">
+      <img src="https://nextlevelracing.com/wp-content/uploads/2022/04/gtelite_wheelplate_10-1060x706.webp" alt="Cockpit simulación" />
+      <h3>RLHs Elite HH</h3>
+      <p>Force Feedback de alta precisión para una experiencia realista.</p>
+      <strong>499€</strong>
+    </div>
+
+    <div class="producto">
+      <img src="https://simufy.com/cdn/shop/files/cockpit_gt_lite_next_level_racing_simufy_7_1080x.webp?v=1685474473" alt="Cockpit simulación" />
+      <h3>RLHs INN</h3>
+      <p>Triple pedal metálico con embrague y resistencia progresiva.</p>
+      <strong>149€</strong>
+    </div>
+  </section>
+
+  <!-- ---------------- BENEFICIOS ---------------- -->
+  <section id="beneficios" class="beneficios">
+    <h2>Beneficios del Sim Racing</h2>
+    <div class="beneficios-list">
+      <div class="beneficio">
+        <h3>Entrenamiento Realista</h3>
+        <p>Mejora tus habilidades de conducción con simuladores que replican la física real y te preparan para la pista.</p>
+      </div>
+      <div class="beneficio">
+        <h3>Accesibilidad Total</h3>
+        <p>Practica en cualquier momento y lugar sin necesidad de un circuito real, ahorrando tiempo y costos.</p>
+      </div>
+      <div class="beneficio">
+        <h3>Comunidad Competitiva</h3>
+        <p>Únete a ligas y competiciones online para desafiar a pilotos de todo el mundo y mejorar tu nivel.</p>
+      </div>
+      <div class="beneficio">
+        <h3>Equipos Profesionales</h3>
+        <p>Usa hardware de alta calidad diseñado para una experiencia inmersiva y profesional en cada carrera.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------- TESTIMONIOS ---------------- -->
+  <section id="testimonios" class="testimonios">
+    <h2>Lo que dicen nuestros pilotos</h2>
+    <div class="testimonio">
+      <p>"Con Redline Hunters he mejorado mi técnica y disfrutado de un realismo increíble. El soporte y los productos son de primera."</p>
+      <strong>- Carlos M.</strong>
+    </div>
+    <div class="testimonio">
+      <p>"Los cockpits y volantes son tan reales que siento que estoy en un verdadero coche de carreras. ¡Muy recomendados!"</p>
+      <strong>- Laura P.</strong>
+    </div>
+    <div class="testimonio">
+      <p>"Excelente atención y envío rápido. El equipo es robusto y perfecto para competir online."</p>
+      <strong>- Javier S.</strong>
+    </div>
+  </section>
+
+  <!-- ---------------- BLOG ---------------- -->
+  <section id="blog" class="blog">
+    <h2>Últimas noticias y consejos</h2>
+    <article class="articulo">
+      <h3>Cómo elegir el volante perfecto para ti</h3>
+      <p>Te contamos las claves para seleccionar un volante que se adapte a tu estilo y presupuesto, desde opciones básicas hasta profesionales.</p>
+    </article>
+    <article class="articulo">
+      <h3>Mejora tus tiempos con estos trucos</h3>
+      <p>Descubre técnicas para optimizar tus vueltas y sacar el máximo partido a tu simulador de carreras.</p>
+    </article>
+    <article class="articulo">
+      <h3>Los mejores juegos de simulación de 2025</h3>
+      <p>Una lista actualizada de los títulos más realistas y populares para disfrutar en tu setup.</p>
+    </article>
+  </section>
+
+  <!-- ---------------- FAQ ---------------- -->
+  <section id="faq" class="faq">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Qué hardware necesito para empezar?</h3>
+      <p>Un PC con buena capacidad gráfica, un volante con force feedback y pedales. Nosotros ofrecemos kits completos para diferentes niveles.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Puedo usar estos simuladores para competir online?</h3>
+      <p>Sí, todos nuestros equipos están diseñados para competiciones online y son compatibles con los principales juegos y plataformas.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Ofrecen soporte y garantía?</h3>
+      <p>Claro, brindamos soporte técnico y garantía para todos nuestros productos para asegurar tu satisfacción.</p>
+    </div>
+  </section>
+
+  <!-- ---------------- NOSOTROS ---------------- -->
+  <section id="nosotros" style="padding: 40px; max-width: 900px; margin: 40px auto; text-align: center;">
+    <h2>Sobre nosotros</h2>
+    <p>En Redline Hunters somos apasionados del automovilismo virtual. Desde 2018, ofrecemos equipos de la más alta calidad para que vivas una experiencia inmersiva y profesional desde tu PC. Nuestra misión es acercar la adrenalina y la precisión de la pista a tu casa, con productos y asesoramiento que marcan la diferencia.</p>
+  </section>
+
+  <!-- ---------------- CONTACTO ---------------- -->
+  <section id="contacto" style="padding: 40px; max-width: 600px; margin: 40px auto; text-align: center;">
+    <h2>Contacto</h2>
+    <p>¿Tienes dudas o necesitas asesoramiento personalizado?</p>
+    <p>Email: <a href="mailto:contacto@redlinehunters.com" style="color:#ff2a00;">contacto@redlinehunters.com</a></p>
+    <p>Teléfono: <a href="tel:+34600123456" style="color:#ff2a00;">+34 600 123 456</a></p>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Redline Hunters - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    // Script para FAQ: abrir/cerrar preguntas al hacer click
+    document.querySelectorAll('.faq-item h3').forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        parent.classList.toggle('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
